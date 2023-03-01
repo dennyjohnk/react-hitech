@@ -32,3 +32,7 @@ form {
   font-size: 16px;
   padding: 6px;
 }
+
+.error-text {
+  color: red;
+}

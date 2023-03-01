@@ -9,6 +9,15 @@ const UserProvider = ({ children }) => {
 
   const login = async (name, password) => {
     setIsLoading(true);
+
+    if (name !== 'user' || password !== 'password') {
+      return await new Promise(function (resolve, reject) {
+        setTimeout(reject, 1000);
+      }).catch(() => {
+        setIsLoading(false);
+      });
+    }
+
     return await new Promise(function (resolve, reject) {
       setTimeout(resolve, 4000);
     }).then(function () {

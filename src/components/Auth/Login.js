@@ -10,6 +10,7 @@ const LoginComp = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
+  const [error, setError] = useState(null);
   const { login, isLoading, isLoggedIn } = useContext(UserContext);
   console.log(isLoggedIn);
 
@@ -20,9 +21,14 @@ const LoginComp = () => {
   }, []);
 
   const handleLogin = () => {
-    login(username, password).then(() => {
-      navigate('/');
-    });
+    setError(null);
+    login(username, password)
+      .then(() => {
+        navigate('/');
+      })
+      .catch((e) => {
+        setError('Wrong Username or Password');
+      });
   };
 
   return (
@@ -45,6 +51,7 @@ const LoginComp = () => {
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
               required
+              autofocus
             />
           </div>
 
@@ -60,7 +67,7 @@ const LoginComp = () => {
               required
             />
           </div>
-
+          {error && <p className="error-text">{error} </p>}
           <br />
           <button
             type="submit"
@@ -69,6 +76,7 @@ const LoginComp = () => {
           >
             Login
           </button>
+          <p>Demo : user/password</p>
           {isLoading && <Spinner />}
         </form>
       </div>
