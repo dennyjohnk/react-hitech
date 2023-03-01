@@ -10,7 +10,7 @@ const LoginComp = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
-  const { login, isLoading, isLoggedIn } = useContext(UserContext);
+  const { login, isLoading } = useContext(UserContext);
 
   const handleLogin = () => {
     login(username, password).then(() => {
