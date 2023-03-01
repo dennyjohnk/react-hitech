@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 
+//import debounce from '../../utils/debounce.js';
 import { PostContext } from '../../context/postContext.js';
+
 import './style.css';
 
 const ToolbarComp = () => {
@@ -31,14 +33,23 @@ const ToolbarComp = () => {
           type="text"
           onChange={(e) => handleSearch(e)}
           value={searchText}
+          placeholder="Search"
         />
       </div>
       <div className="flex prev-next-container">
-        <button onClick={() => handlePrev()} disabled={isLoading}>
+        <button
+          className="cursor-pointer"
+          onClick={() => handlePrev()}
+          disabled={isLoading}
+        >
           Prev
         </button>
         <p>{page}/10</p>
-        <button onClick={() => handleNext()} disabled={isLoading}>
+        <button
+          className="cursor-pointer"
+          onClick={() => handleNext()}
+          disabled={isLoading}
+        >
           Next
         </button>
       </div>
