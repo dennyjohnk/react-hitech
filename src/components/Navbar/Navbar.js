@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+
+import { UserContext } from '../../context/UserContext';
+import Spinner from '../Spinner/Spinner';
 
 import './Navbar.css';
 
 const NavbarComp = () => {
+  const { name, isLoading, isLoggedIn, logout } = useContext(UserContext);
+
   return (
     <header className="header__navbar">
       <div className="navbar">
@@ -11,8 +16,19 @@ const NavbarComp = () => {
           <Link to="/">Skateboard</Link>
         </h2>
         <div className="navbar__links">
-          <Link to="/">Home</Link>
-          <Link to="/">Login</Link>
+          {isLoading && <Spinner />}
+          {!isLoggedIn ? (
+            <Link to="/login">Login</Link>
+          ) : (
+            <div className="cursor-pointer" onClick={() => logout()}>
+              LOGOUT
+            </div>
+          )}
+          {isLoggedIn && (
+            <div className="avatar-container">
+              <div className="name">{name.charAt(0).toUpperCase()}</div>
+            </div>
+          )}
         </div>
       </div>
     </header>

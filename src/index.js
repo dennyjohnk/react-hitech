@@ -1,7 +1,8 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import { PostProvider } from './context/postContext';
+import { PostProvider } from './context/PostContext';
+import { UserProvider } from './context/UserContext';
 
 import App from './App';
 
@@ -11,9 +12,11 @@ const root = createRoot(rootElement);
 root.render(
   <StrictMode>
     <BrowserRouter>
-      <PostProvider>
-        <App />
-      </PostProvider>
+      <UserProvider>
+        <PostProvider>
+          <App />
+        </PostProvider>
+      </UserProvider>
     </BrowserRouter>
   </StrictMode>
 );

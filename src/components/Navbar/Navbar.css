@@ -31,20 +31,11 @@
   display: block;
 }
 
-main {
-  max-width: 136.6rem;
-  padding: 3rem;
-  margin: 0 auto;
-  min-height: 100vh;
-}
-
-/* ================================= 
-  Media Queries
-==================================== */
 @media (min-width: 769px) {
   .navbar,
   .navbar__links {
     display: flex;
+    align-items: center;
   }
 
   .navbar {
@@ -62,4 +53,19 @@ main {
     flex-direction: row;
     justify-content: space-between;
   }
+}
+
+.avatar-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #333;
+  margin-left: 10px;
+}
+
+.name {
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 38px;
 }
