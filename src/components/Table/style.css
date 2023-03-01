@@ -1,0 +1,26 @@
+.post-main {
+  margin: 10px;
+}
+
+.post-container {
+  flex-direction: column;
+  border: 2px solid black;
+  padding: 8px;
+  margin: 10px 0px;
+  border-radius: 5px;
+}
+
+.post-title {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.table-toolbar {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.prev-next-container {
+  width: 20%;
+  justify-content: space-between;
+}
