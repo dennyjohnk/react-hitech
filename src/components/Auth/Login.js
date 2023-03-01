@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../context/UserContext';
 import Spinner from '../Spinner/Spinner';
@@ -6,18 +7,20 @@ import Spinner from '../Spinner/Spinner';
 import './Login.css';
 
 const LoginComp = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
-  const { login, isLoading } = useContext(UserContext);
+  const { login, isLoading, isLoggedIn } = useContext(UserContext);
 
   const handleLogin = () => {
-    login(username, password);
+    login(username, password).then(() => {
+      navigate('/');
+    });
   };
 
   return (
     <div className="flex login-form">
       <div className="form">
-        {isLoading && <Spinner />}
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -26,6 +29,7 @@ const LoginComp = () => {
         >
           <div>
             <label>Username</label>
+            <br />
             <input
               type="text"
               placeholder="Username"
@@ -33,9 +37,10 @@ const LoginComp = () => {
               required
             />
           </div>
-
+          <br />
           <div>
             <label>Password</label>
+            <br />
             <input
               type="password"
               placeholder="Password"
@@ -43,10 +48,11 @@ const LoginComp = () => {
               required
             />
           </div>
-
-          <button type="submit" className="cursor-pointer">
+          <br />
+          <button type="submit" className="cursor-pointer" disabled={isLoading}>
             Login
           </button>
+          {isLoading && <Spinner />}
         </form>
       </div>
     </div>

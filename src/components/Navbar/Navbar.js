@@ -16,7 +16,7 @@ const NavbarComp = () => {
           <Link to="/">Skateboard</Link>
         </h2>
         <div className="navbar__links">
-          {isLoading && <Spinner />}
+          {isLoading && isLoggedIn && <Spinner />}
           {!isLoggedIn ? (
             <Link to="/login">Login</Link>
           ) : (

@@ -4,6 +4,11 @@ p {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+:root {
+  --blue: #0096ff;
+  --white: #ffffff;
+}
+
 body {
   margin: 0px !important;
 }

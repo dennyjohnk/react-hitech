@@ -18,11 +18,15 @@
   margin: 0;
   padding: 1rem 0;
 }
+
+.navbar__logo a {
+  color: var(--blue);
+}
 .navbar__links a:not(last-child) {
   padding: 2rem;
 }
 .navbar__links a:hover {
-  color: orangered;
+  color: #0096ff;
 }
 .navbar__logo a,
 .navbar__links a {
