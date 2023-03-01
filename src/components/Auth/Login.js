@@ -44,7 +44,7 @@ const LoginComp = () => {
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
               required
-              autofocus
+              autoFocus
             />
           </div>
 

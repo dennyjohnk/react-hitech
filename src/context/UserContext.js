@@ -46,12 +46,21 @@ const UserProvider = ({ children }) => {
   };
 
   const getUser = () => {
-    const name = localStorage.getItem('name');
-    setName(name);
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn === 'false') {
-      setIsLoggedIn(Boolean(false));
-    } else setIsLoggedIn(Boolean(true));
+    if (localStorage.hasOwnProperty('name')) {
+      const name = localStorage.getItem('name');
+      setName(name);
+    } else {
+      localStorage.setItem('name', null);
+    }
+
+    if (localStorage.hasOwnProperty('isLoggedIn')) {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      if (isLoggedIn === 'false') {
+        setIsLoggedIn(Boolean(false));
+      } else setIsLoggedIn(Boolean(true));
+    } else {
+      localStorage.setItem('isLoggedIn', false);
+    }
   };
 
   useEffect(() => {

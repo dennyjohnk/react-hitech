@@ -35,7 +35,7 @@ const NavbarComp = () => {
           {isLoading && isLoggedIn && <Spinner />}
           {isLoggedIn && !isLoading && (
             <div className="avatar-container">
-              <div className="name">{name.charAt(0).toUpperCase()}</div>
+              <div className="name">{name?.charAt(0).toUpperCase()}</div>
             </div>
           )}
         </div>
