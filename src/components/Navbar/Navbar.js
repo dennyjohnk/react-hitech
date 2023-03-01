@@ -24,11 +24,13 @@ const NavbarComp = () => {
         </h2>
         <div className="navbar__links">
           {!isLoggedIn ? (
-            <Link to="/login">Login</Link>
+            <Link to="/login">
+              <button className="btn">Login</button>
+            </Link>
           ) : (
-            <div className="cursor-pointer" onClick={() => handleLogout()}>
+            <button className="btn" onClick={() => handleLogout()}>
               LOGOUT
-            </div>
+            </button>
           )}
           {isLoading && isLoggedIn && <Spinner />}
           {isLoggedIn && !isLoading && (

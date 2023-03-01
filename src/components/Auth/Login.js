@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { UserContext } from '../../context/UserContext';
@@ -10,7 +10,14 @@ const LoginComp = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
-  const { login, isLoading } = useContext(UserContext);
+  const { login, isLoading, isLoggedIn } = useContext(UserContext);
+  console.log(isLoggedIn);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/');
+    }
+  }, []);
 
   const handleLogin = () => {
     login(username, password).then(() => {
@@ -53,7 +60,11 @@ const LoginComp = () => {
             />
           </div>
           <br />
-          <button type="submit" className="cursor-pointer" disabled={isLoading}>
+          <button
+            type="submit"
+            className="btn cursor-pointer"
+            disabled={isLoading}
+          >
             Login
           </button>
           {isLoading && <Spinner />}

@@ -33,11 +33,12 @@ const ToolbarComp = () => {
           onChange={(e) => handleSearch(e)}
           value={searchText}
           placeholder="Search"
+          className="search-box"
         />
       </div>
       <div className="flex prev-next-container">
         <button
-          className="cursor-pointer"
+          className="btn"
           onClick={() => handlePrev()}
           disabled={isLoading}
         >
@@ -45,7 +46,7 @@ const ToolbarComp = () => {
         </button>
         <p>{page}/10</p>
         <button
-          className="cursor-pointer"
+          className="btn"
           onClick={() => handleNext()}
           disabled={isLoading}
         >

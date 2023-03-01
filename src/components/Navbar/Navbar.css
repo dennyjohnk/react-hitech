@@ -60,8 +60,8 @@
 }
 
 .avatar-container {
-  width: 50px;
-  height: 50px;
+  width: 43px;
+  height: 43px;
   border-radius: 5px;
   background: #333;
   margin-left: 10px;
@@ -71,5 +71,5 @@
   width: 100%;
   text-align: center;
   color: white;
-  font-size: 38px;
+  font-size: 34px;
 }
