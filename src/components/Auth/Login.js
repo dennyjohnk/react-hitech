@@ -47,6 +47,7 @@ const LoginComp = () => {
               required
             />
           </div>
+
           <br />
           <div>
             <label className="form-label">Password</label>
@@ -59,6 +60,7 @@ const LoginComp = () => {
               required
             />
           </div>
+
           <br />
           <button
             type="submit"
