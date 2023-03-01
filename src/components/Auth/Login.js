@@ -33,9 +33,9 @@ const LoginComp = () => {
             handleLogin();
           }}
         >
-          <div>
-            <h3 className="form-title">Login</h3>
-            <br />
+          <h3 className="form-title">Login</h3>
+          <br />
+          <div className="form-group">
             <label className="form-label">Username</label>
             <br />
             <input
@@ -48,8 +48,7 @@ const LoginComp = () => {
             />
           </div>
 
-          <br />
-          <div>
+          <div className="form-group">
             <label className="form-label">Password</label>
             <br />
             <input

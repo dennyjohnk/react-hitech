@@ -33,6 +33,10 @@ form {
   padding: 6px;
 }
 
+.form-group {
+  margin-bottom: 10px;
+}
+
 .error-text {
   color: red;
 }
