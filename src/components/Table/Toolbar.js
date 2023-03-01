@@ -5,7 +5,7 @@ import './style.css';
 
 const ToolbarComp = () => {
   const [searchText, setSearchText] = useState('');
-  const { page, setPage, GetPostLists } = useContext(PostContext);
+  const { page, setPage, isLoading, GetPostLists } = useContext(PostContext);
 
   const handlePrev = () => {
     if (page === 1) return;
@@ -34,9 +34,13 @@ const ToolbarComp = () => {
         />
       </div>
       <div className="flex prev-next-container">
-        <button onClick={() => handlePrev()}>Prev</button>
+        <button onClick={() => handlePrev()} disabled={isLoading}>
+          Prev
+        </button>
         <p>{page}/10</p>
-        <button onClick={() => handleNext()}>Next</button>
+        <button onClick={() => handleNext()} disabled={isLoading}>
+          Next
+        </button>
       </div>
     </div>
   );
