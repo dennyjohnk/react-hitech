@@ -1,6 +1,6 @@
 .post-container {
   flex-direction: column;
-  border: 2px solid black;
+  border: 2px solid var(--post-border);
   padding: 8px;
   margin: 10px 0px;
   border-radius: 5px;

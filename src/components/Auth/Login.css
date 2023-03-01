@@ -8,3 +8,21 @@ form {
   display: flex;
   flex-direction: column;
 }
+
+.form {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding: 20px;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.form-label {
+  font-size: 20px;
+}
+
+.form-input {
+  margin-top: 8px;
+  font-size: 16px;
+}

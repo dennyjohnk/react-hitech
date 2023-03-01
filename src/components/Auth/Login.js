@@ -28,9 +28,12 @@ const LoginComp = () => {
           }}
         >
           <div>
-            <label>Username</label>
+            <h3 className="form-title">Login</h3>
+            <br />
+            <label className="form-label">Username</label>
             <br />
             <input
+              className="form-input"
               type="text"
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
@@ -39,9 +42,10 @@ const LoginComp = () => {
           </div>
           <br />
           <div>
-            <label>Password</label>
+            <label className="form-label">Password</label>
             <br />
             <input
+              className="form-input"
               type="password"
               placeholder="Password"
               onChange={(e) => setPassword(e.target.value)}
