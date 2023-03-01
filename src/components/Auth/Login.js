@@ -10,9 +10,7 @@ const LoginComp = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState(null);
   const [password, setPassword] = useState(null);
-  const [error, setError] = useState(null);
-  const { login, isLoading, isLoggedIn } = useContext(UserContext);
-  console.log(isLoggedIn);
+  const { login, isLoading, isLoggedIn, error } = useContext(UserContext);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -21,14 +19,9 @@ const LoginComp = () => {
   }, []);
 
   const handleLogin = () => {
-    setError(null);
-    login(username, password)
-      .then(() => {
-        navigate('/');
-      })
-      .catch((e) => {
-        setError('Wrong Username or Password');
-      });
+    login(username, password).then(() => {
+      navigate('/');
+    });
   };
 
   return (

@@ -6,14 +6,17 @@ const UserProvider = ({ children }) => {
   const [name, setName] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const login = async (name, password) => {
     setIsLoading(true);
+    setError(null);
 
     if (name !== 'user' || password !== 'password') {
       return await new Promise(function (resolve, reject) {
         setTimeout(reject, 1000);
       }).catch(() => {
+        setError('Wrong Username or Password');
         setIsLoading(false);
       });
     }
@@ -57,7 +60,7 @@ const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ name, isLoggedIn, isLoading, login, logout, getUser }}
+      value={{ name, isLoggedIn, isLoading, login, logout, getUser, error }}
     >
       {children}
     </UserContext.Provider>
