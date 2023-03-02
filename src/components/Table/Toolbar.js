@@ -22,6 +22,7 @@ const ToolbarComp = () => {
 
   const handleSearch = (event) => {
     setSearchText(event.target.value);
+    setPage(1);
     GetPostLists(1, searchText);
   };
 
