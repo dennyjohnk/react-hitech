@@ -10,6 +10,7 @@ import './Navbar.css';
 const NavbarComp = () => {
   const navigate = useNavigate();
   const { name, isLoading, isLoggedIn, logout } = useContext(UserContext);
+
   const handleLogout = () => {
     logout().then(() => {
       navigate('/login');
